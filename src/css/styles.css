@@ -18,3 +18,43 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+#search-box:focus {
+  outline: none;
+  border-color: #2196f3;
+  border-radius: 5px;
+}
+
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.country-img {
+  width: 50px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-text {
+  margin: 0;
+  padding: 0;
+  font-weight: 900;
+}
+
+.value {
+  font-weight: 600;
+}
