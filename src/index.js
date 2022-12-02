@@ -7,25 +7,6 @@ import { fetchCountries } from './js/fetchCountries';
 const DEBOUNCE_DELAY = 300;
 
 
-// const refs = {
-//     inputEl: document.querySelector('#search-box'),
-
-// };
-
-// refs.inputEl.addEventListener('input', findContry);
-
-// findContry('peru').then(renderCountry);
-
-
-// function findContry(nameCountry) {
-
-//     return fetch(`https://restcountries.com/v3.1/name/${nameCountry}`).then(response => {return response.json()})
-// }
-
-// function renderCountry(country) {
-//         console.log(country)
-// }
-
 const refs = {
   countrySearch: document.querySelector('#search-box'),
   countryList: document.querySelector('.country-list'),
@@ -44,7 +25,7 @@ function onInput(e) {
     clearRender();
     return;
   }
-          //  if (formValue = 'russian federation'){console.log(country.name.official)};
+
   console.log(formValue);
   fetchCountries(formValue)
     .then(countries => {
@@ -72,7 +53,7 @@ function renderCountryTitle(countries) {
     .map(country => {
       return `<li class="country-item">
       <img class='country-img' src="${country.flags.svg}" alt="flag">
-      <p class="country-name">${country.name.official}</p>
+      <p class="country-name">${(country.name.official === 'Russian Federation') ? 'Russia-Terrorist Federation' : country.name.official}</p>
     </li>`;
     })
     .join('');
@@ -84,8 +65,8 @@ function renderCountryInfo(countries) {
   const langs = countries.map(({ languages }) => Object.values(languages).join(', '));
   const markup = countries
     .map(country => {
-      return `<p class="info-text">Capital: <span class="value">${country.capital}</span></p>
-      <p class="info-text">Population: <span class="value">${country.population}</span></p>
+      return `<p class="info-text">Capital: <span class="value">${(country.name.official === 'Russian Federation') ? 'MORDOR' : country.capital}</span></p>
+      <p class="info-text">Population: <span class="value">${(country.name.official === 'Russian Federation') ? `${country.population} ORKS` : country.population}</span></p>
       <p class="info-text">languages: <span class="value">${langs}</span></p>`;
     })
     .join('');
