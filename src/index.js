@@ -1,4 +1,3 @@
-import { trim } from 'lodash';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix';
 import './css/styles.css';
